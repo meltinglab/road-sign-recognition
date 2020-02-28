@@ -10,4 +10,10 @@ imds = imageDatastore(GTSRB_training_path, 'IncludeSubfolders', true, 'LabelSour
 nImages = size(imds.Files,1);
 %Size of the images
 imSize = [32 32];
-resizedImds = augmentedImageDatastore(imSize, imds);
+
+%Split dataset: 80% training, 20% validation
+[imdsTrain,imdsValidation] = splitEachLabel(resizedImds, 0.8, 'randomize');
+
+%Resize training and validation dataset
+resizedImdsTrain = augmentedImageDatastore(imSize, imdsTrain);
+resizedImdsValidation = augmentedImageDatastore(imSize, imdsValidation);

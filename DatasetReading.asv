@@ -1,15 +1,13 @@
 %Project Title: Road Sign Recognition
 %Module Title: Dataset Reading
 %Description: Function for the reading of the dataset images
-%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 
 %Argumetns:
-%   dataset_path: path to the dataset directory
+%   
 
 %Outputs:
-%   resizedImdsTrain: training images
-%   resizedImdsValidation: validation images
-
+%
+%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 
 function [resizedImdsTrain, resizedImdsValidation] = DatasetReading(dataset_path)
     %dataset_path = fullfile('C:\','Users','Daminao','Desktop','GTSRB','Final_Training','Images');

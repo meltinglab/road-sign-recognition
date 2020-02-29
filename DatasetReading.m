@@ -1,6 +1,15 @@
 %Project Title: Road Sign Recognition
 %Module Title: Dataset Reading
+%Description: Function for the reading of the dataset images
 %Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
+
+%Argumetns:
+%   dataset_path: path to the dataset directory
+
+%Outputs:
+%   resizedImdsTrain: training images
+%   resizedImdsValidation: validation images
+
 
 function [resizedImdsTrain, resizedImdsValidation] = DatasetReading(dataset_path)
     %dataset_path = fullfile('C:\','Users','Daminao','Desktop','GTSRB','Final_Training','Images');
@@ -12,7 +21,7 @@ function [resizedImdsTrain, resizedImdsValidation] = DatasetReading(dataset_path
     imSize = [32 32];
 
     %Split dataset: 80% training, 20% validation
-    [imdsTrain,imdsValidation] = splitEachLabel(resizedImds, 0.8, 'randomize');
+    [imdsTrain,imdsValidation] = splitEachLabel(imds, 0.8, 'randomize');
 
     %Resize training and validation dataset
     resizedImdsTrain = augmentedImageDatastore(imSize, imdsTrain);

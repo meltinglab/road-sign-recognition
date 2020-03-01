@@ -7,7 +7,7 @@
 mResNet;
 
 %ToDo Specify correct dataset path 
-dataset_path = ; 
+dataset_path = 'C:\Users\matte\Desktop\Università\Advanced_automotive_electronic_engineering\2_Anno\Compliance Design\GTSRB'; 
 
 %Read data for training and validation
 [resizedImdsTrain, resizedImdsValidation] = DatasetReading(dataset_path);

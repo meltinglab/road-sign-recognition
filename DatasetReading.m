@@ -3,7 +3,7 @@
 %Description: Function for the reading of the dataset images
 %Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 
-%Argumetns:
+%Arguments:
 %   dataset_path: path to the dataset directory
 
 %Outputs:

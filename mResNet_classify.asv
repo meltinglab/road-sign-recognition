@@ -5,9 +5,10 @@
 
 %Arguments:
 %   I: input image to be classified
+%   predicted_class: class predicted by the network
 
 %Outputs:
-%   outImg: classified image
+%   outimg: processed image
 
 function outImg = mResNet_classify(I)
 %#codegen
@@ -23,5 +24,6 @@ in(:, :, :) = imresize(I, [32, 32]);
 
 [~,predicted_class] = max(predict(net, in));
 outImg = postprocess(in, predicted_class);
+imshow(outImg)
 end
 

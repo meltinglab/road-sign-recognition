@@ -1,6 +1,7 @@
 %Project Title: Road Sign Recognition
 %Module Title: Network Training
 %Description: function used for network training
+%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 
 %Arguments: 
 %   resizedImdsTrain: training images
@@ -9,7 +10,6 @@
 
 %Output: trained network
 
-%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 
 function net = NetworkTraining(resizedImdsTrain, resizedImdsValidation, lgraph)
 

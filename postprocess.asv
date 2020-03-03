@@ -1,14 +1,14 @@
 %Project Title: Road Sign Recognition
 %Module Title: Postprocess
-%Description: Function to process and display the classification result
+%Description: Function to process and display the cl
 %Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 
 %Arguments:
-%   im: input image
-%   predicted_class: class predicted by the network
+%   dataset_path: path to the dataset directory
 
 %Outputs:
-%   outimg: processed image
+%   resizedImdsTrain: training images
+%   resizedImdsValidation: validation images
 
 function outimg = postprocess(im, predicted_class)
 %#codegen

@@ -1,4 +1,5 @@
 function outimg = postprocess(im, predicted_class)
+%#codegen
 %POSTPROCESS Summary of this function goes here
 %   Detailed explanation goes here
 

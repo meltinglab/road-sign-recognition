@@ -40,8 +40,7 @@ ClassNames = {'20 km/h', '30 km/h', 'no overtaking for tracks',...
               'roundabout', 'end no-overtaking', 'end no-overtaking truck',...
               '80 km/h', 'end 80km/h', '100 km/h', '120 km/h', 'no overtaking'};
  
-label_string = string(predicted_class);
-label = ClassNames(str2num(label_string));
+label = ClassNames(predicted_class);
 
 outputImage = zeros(320,256,3, 'uint8');
 resizedImage = imresize(im, [256, 256]);

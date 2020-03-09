@@ -1,3 +1,8 @@
+%Project Title: Road Sign Recognition
+%Module Title: Test Code Generator
+%Description: Script for the automatic code generation for PIL
+%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
+
 r=raspi();
 fcnName = 'mResNet_classify';
 cfg = coder.config('lib');
@@ -15,8 +20,3 @@ cfg.VerificationMode = 'PIL';
 
 vectorType = coder.typeof(ones(15,15,3), [2000,2000,3], [1 1 0]);
 codegen -config cfg mResNet_classify -args {vectorType} -report
-
-%%
-im = imread('80km-h.png');
-outimg = mResNet_classify_pil(double(im));
-imshow(outimg);

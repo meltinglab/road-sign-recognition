@@ -19,7 +19,7 @@ if isempty(net)
 end
 
 in = zeros(32, 32, 3);
-in(:, :, :) = imresize(I, [32, 32]);
+in(:, :, :) = imresize(I, [32 32]);
 
 [~,predicted_class] = max(predict(net, in));
 outImg = postprocess(in, predicted_class);

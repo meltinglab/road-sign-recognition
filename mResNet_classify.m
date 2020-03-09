@@ -14,14 +14,19 @@ function outImg = mResNet_classify(I)
 
 persistent net;
 
+%Load the pretrained mResNet CNN model
 if isempty(net)
     net = coder.loadDeepLearningNetwork('trained_net.mat');
 end
 
+%Resize the input image with the correct dimensions
 in = zeros(32, 32, 3);
 in(:, :, :) = imresize(I, [32 32]);
 
+%Make the prediction and save it to predicted_class
 [~,predicted_class] = max(predict(net, in));
-outImg = postprocess(in, predicted_class);
+
+%Return the output image with the prediction 
+outImg = Postprocess(in, predicted_class);
 end
 

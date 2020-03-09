@@ -1,5 +1,5 @@
 %Project Title: Road Sign Recognition
-%Module Title: Main
+%Module Title: Training Main
 %Description: Main script used for network training
 %Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo
 

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of mResNet_classify</title>
+  <meta name="keywords" content="mResNet_classify">
+  <meta name="description" content="Project Title: Road Sign Recognition">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- # road-sign-recognition --><!-- menu.html RaspberryDeployment -->
+<h1>mResNet_classify
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Project Title: Road Sign Recognition</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function outImg = mResNet_classify(I) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Project Title: Road Sign Recognition
+Module Title: mResNet Classify
+Description: Function to classify the traffic sign image given as input
+Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="Postprocess.html" class="code" title="function outimg = Postprocess(im, predicted_class)">Postprocess</a>	Project Title: Road Sign Recognition</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="TestCodeGenerator.html" class="code" title="">TestCodeGenerator</a>	Project Title: Road Sign Recognition</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Project Title: Road Sign Recognition</span>
+0002 <span class="comment">%Module Title: mResNet Classify</span>
+0003 <span class="comment">%Description: Function to classify the traffic sign image given as input</span>
+0004 <span class="comment">%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</span>
+0005 
+0006 <span class="comment">%Arguments:</span>
+0007 <span class="comment">%   I: input image to be classified</span>
+0008 
+0009 <span class="comment">%Outputs:</span>
+0010 <span class="comment">%   outImg: classified image</span>
+0011 
+0012 <a name="_sub0" href="#_subfunctions" class="code">function outImg = mResNet_classify(I)</a>
+0013 <span class="comment">%#codegen</span>
+0014 
+0015 <span class="keyword">persistent</span> net;
+0016 
+0017 <span class="comment">%Load the pretrained mResNet CNN model</span>
+0018 <span class="keyword">if</span> isempty(net)
+0019     net = coder.loadDeepLearningNetwork(<span class="string">'trained_net.mat'</span>);
+0020 <span class="keyword">end</span>
+0021 
+0022 <span class="comment">%Resize the input image with the correct dimensions</span>
+0023 in = zeros(32, 32, 3);
+0024 in(:, :, :) = imresize(I, [32 32]);
+0025 
+0026 <span class="comment">%Make the prediction and save it to predicted_class</span>
+0027 [~,predicted_class] = max(predict(net, in));
+0028 
+0029 <span class="comment">%Return the output image with the prediction</span>
+0030 outImg = <a href="Postprocess.html" class="code" title="function outimg = Postprocess(im, predicted_class)">Postprocess</a>(in, predicted_class);
+0031 <span class="keyword">end</span>
+0032</pre></div>
+<hr><address>Generated on Mon 09-Mar-2020 16:14:51 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

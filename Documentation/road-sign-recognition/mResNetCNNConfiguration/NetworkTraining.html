@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of NetworkTraining</title>
+  <meta name="keywords" content="NetworkTraining">
+  <meta name="description" content="Project Title: Road Sign Recognition">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- # road-sign-recognition --><!-- menu.html mResNetCNNConfiguration -->
+<h1>NetworkTraining
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Project Title: Road Sign Recognition</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>function net = NetworkTraining(resizedImdsTrain, resizedImdsValidation, lgraph) </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Project Title: Road Sign Recognition
+Module Title: Network Training
+Description: function used for network training
+Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="TrainingMain.html" class="code" title="">TrainingMain</a>	Project Title: Road Sign Recognition</li></ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Project Title: Road Sign Recognition</span>
+0002 <span class="comment">%Module Title: Network Training</span>
+0003 <span class="comment">%Description: function used for network training</span>
+0004 <span class="comment">%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</span>
+0005 
+0006 <span class="comment">%Arguments:</span>
+0007 <span class="comment">%   resizedImdsTrain: training images</span>
+0008 <span class="comment">%   resizedImdsValidation: validation images</span>
+0009 <span class="comment">%   lgraph: network to be used</span>
+0010 
+0011 <span class="comment">%Output: trained network</span>
+0012 
+0013 
+0014 <a name="_sub0" href="#_subfunctions" class="code">function net = NetworkTraining(resizedImdsTrain, resizedImdsValidation, lgraph)</a>
+0015 
+0016 <span class="comment">%Define options for the training</span>
+0017 options = trainingOptions(<span class="string">'adam'</span>, <span class="keyword">...</span>
+0018     <span class="string">'InitialLearnRate'</span>,0.001, <span class="keyword">...</span>
+0019     <span class="string">'MaxEpochs'</span>,100, <span class="keyword">...</span>
+0020     <span class="string">'MiniBatchSize'</span>,128, <span class="keyword">...</span>
+0021     <span class="string">'Shuffle'</span>,<span class="string">'every-epoch'</span>, <span class="keyword">...</span>
+0022     <span class="string">'ValidationData'</span>,resizedImdsValidation, <span class="keyword">...</span>
+0023     <span class="string">'ValidationFrequency'</span>,245, <span class="keyword">...</span>
+0024     <span class="string">'Verbose'</span>,false, <span class="keyword">...</span>
+0025     <span class="string">'Plots'</span>,<span class="string">'training-progress'</span>);
+0026 
+0027 <span class="comment">%Launch the network training</span>
+0028 net = trainNetwork(resizedImdsTrain,lgraph,options);
+0029 
+0030 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Mon 09-Mar-2020 16:14:51 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

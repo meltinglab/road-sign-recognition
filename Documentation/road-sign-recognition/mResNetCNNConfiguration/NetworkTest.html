@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of NetworkTest</title>
+  <meta name="keywords" content="NetworkTest">
+  <meta name="description" content="Project Title: Road Sign Recognition">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- # road-sign-recognition --><!-- menu.html mResNetCNNConfiguration -->
+<h1>NetworkTest
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Project Title: Road Sign Recognition</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Project Title: Road Sign Recognition
+Module Title: Network Test
+Description: script for the Network testing
+Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Project Title: Road Sign Recognition</span>
+0002 <span class="comment">%Module Title: Network Test</span>
+0003 <span class="comment">%Description: script for the Network testing</span>
+0004 <span class="comment">%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</span>
+0005 
+0006 <span class="comment">%Load the trained network</span>
+0007 load(<span class="string">'trained_net.mat'</span>);
+0008 
+0009 <span class="comment">%Path of the test images</span>
+0010 dataset_path = <span class="string">'C:\Users\Daminao\Desktop\GTSRB\Test_PNG'</span>; 
+0011 <span class="comment">%Name of the .csv file that contains the Ground Truth labels</span>
+0012 labelsFilename = strcat(dataset_path,<span class="string">'\GT-final_test.csv'</span>);
+0013 
+0014 <span class="comment">%.csv file loading in a table</span>
+0015 imageTable = readtable(labelsFilename, <span class="string">'PreserveVariableNames'</span>, true);
+0016 labels = imageTable{:,<span class="string">'ClassId'</span>};
+0017 
+0018 <span class="comment">%Class for the management of the dataset</span>
+0019 imdsTest = imageDatastore(dataset_path);
+0020 imdsTest.Labels = categorical(labels);
+0021 
+0022 <span class="comment">%Size of the images</span>
+0023 imSize = [32 32];
+0024 
+0025 <span class="comment">%Resize test dataset</span>
+0026 resizedImdsTest = augmentedImageDatastore(imSize, imdsTest);
+0027 
+0028 <span class="comment">%Classification and Ground Truth Values</span>
+0029 YPred = classify(net,resizedImdsTest);
+0030 YGT = imdsTest.Labels;
+0031 
+0032 <span class="comment">%Accuracy computation</span>
+0033 accuracy = sum(YPred == YGT)/numel(YGT)</pre></div>
+<hr><address>Generated on Mon 09-Mar-2020 16:14:51 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

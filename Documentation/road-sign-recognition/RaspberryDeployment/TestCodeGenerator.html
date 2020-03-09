@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of TestCodeGenerator</title>
+  <meta name="keywords" content="TestCodeGenerator">
+  <meta name="description" content="Project Title: Road Sign Recognition">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- # road-sign-recognition --><!-- menu.html RaspberryDeployment -->
+<h1>TestCodeGenerator
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Project Title: Road Sign Recognition</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Project Title: Road Sign Recognition
+Module Title: Test Code Generator
+Description: Script for the automatic code generation for PIL
+Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="mResNet_classify.html" class="code" title="function outImg = mResNet_classify(I)">mResNet_classify</a>	Project Title: Road Sign Recognition</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Project Title: Road Sign Recognition</span>
+0002 <span class="comment">%Module Title: Test Code Generator</span>
+0003 <span class="comment">%Description: Script for the automatic code generation for PIL</span>
+0004 <span class="comment">%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</span>
+0005 
+0006 <span class="comment">%Establish the connection to Raspberry</span>
+0007 r=raspi();
+0008 
+0009 <span class="comment">%Code generation setup</span>
+0010 fcnName = <span class="string">'mResNet_classify'</span>;
+0011 cfg = coder.config(<span class="string">'lib'</span>);
+0012 cfg.TargetLang = <span class="string">'C++'</span>;
+0013 
+0014 dlcfg = coder.DeepLearningConfig(<span class="string">'arm-compute'</span>);
+0015 dlcfg.ArmArchitecture = <span class="string">'armv7'</span>;
+0016 dlcfg.ArmComputeVersion = <span class="string">'19.02'</span>;
+0017 
+0018 cfg.DeepLearningConfig = dlcfg;
+0019 hw = coder.hardware(<span class="string">'Raspberry Pi'</span>);
+0020 cfg.Hardware = hw;
+0021 cfg.Hardware.BuildDir = <span class="string">'~/im_classify'</span>;
+0022 
+0023 <span class="comment">%Processor in the Loop configuration</span>
+0024 cfg.VerificationMode = <span class="string">'PIL'</span>;
+0025 
+0026 <span class="comment">%Dimensions of the input image from 15x15 to 2000x2000</span>
+0027 vectorType = coder.typeof(ones(15,15,3), [2000,2000,3], [1 1 0]);
+0028 
+0029 <span class="comment">%Code generation on the target Raspberry Pi</span>
+0030 codegen -config cfg <a href="mResNet_classify.html" class="code" title="function outImg = mResNet_classify(I)">mResNet_classify</a> -args {vectorType} -report</pre></div>
+<hr><address>Generated on Mon 09-Mar-2020 16:14:51 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

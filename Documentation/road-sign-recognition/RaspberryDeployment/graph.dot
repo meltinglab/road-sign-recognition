@@ -1,0 +1,10 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  TestCodeGenerator -> mResNet_classify;
+  mResNet_classify -> Postprocess;
+
+  PILRaspberryTest [URL="PILRaspberryTest.html"];
+  Postprocess [URL="Postprocess.html"];
+  TestCodeGenerator [URL="TestCodeGenerator.html"];
+  mResNet_classify [URL="mResNet_classify.html"];
+}

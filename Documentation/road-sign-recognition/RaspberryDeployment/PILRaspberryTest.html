@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of PILRaspberryTest</title>
+  <meta name="keywords" content="PILRaspberryTest">
+  <meta name="description" content="Project Title: Road Sign Recognition">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- # road-sign-recognition --><!-- menu.html RaspberryDeployment -->
+<h1>PILRaspberryTest
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Project Title: Road Sign Recognition</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Project Title: Road Sign Recognition
+Module Title: PIL Raspberry Test
+Description: Script for the PIL testing of the Raspberry
+Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Project Title: Road Sign Recognition</span>
+0002 <span class="comment">%Module Title: PIL Raspberry Test</span>
+0003 <span class="comment">%Description: Script for the PIL testing of the Raspberry</span>
+0004 <span class="comment">%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</span>
+0005 
+0006 images = dir(<span class="string">'..\TestImages\*.png'</span>);
+0007 N = length(images);
+0008 
+0009 <span class="comment">% loop for each input image</span>
+0010 <span class="keyword">for</span> i = 1:N
+0011     im = imread([<span class="string">'..\TestImages\'</span> images(i).name]);
+0012     
+0013     <span class="comment">%Classify using mResNet implemented on Raspberry Pi</span>
+0014     outimg = mResNet_classify_pil(double(im));
+0015     
+0016     <span class="comment">%Show the images with the result of classification</span>
+0017     figure(i);
+0018     imshow(outimg)
+0019 <span class="keyword">end</span></pre></div>
+<hr><address>Generated on Mon 09-Mar-2020 16:14:51 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

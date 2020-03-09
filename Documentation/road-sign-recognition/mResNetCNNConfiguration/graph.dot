@@ -1,0 +1,10 @@
+/* Created by mdot for Matlab */
+digraph m2html {
+  TrainingMain -> DatasetReading;
+  TrainingMain -> NetworkTraining;
+
+  DatasetReading [URL="DatasetReading.html"];
+  NetworkTest [URL="NetworkTest.html"];
+  NetworkTraining [URL="NetworkTraining.html"];
+  TrainingMain [URL="TrainingMain.html"];
+}

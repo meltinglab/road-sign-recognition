@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+  <title>Description of TrainingMain</title>
+  <meta name="keywords" content="TrainingMain">
+  <meta name="description" content="Project Title: Road Sign Recognition">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="generator" content="m2html &copy; 2005 Guillaume Flandin">
+  <meta name="robots" content="index, follow">
+  <link type="text/css" rel="stylesheet" href="../../m2html.css">
+  <script type="text/javascript">
+    if (top.frames.length == 0) { top.location = "../../index.html"; };
+  </script>
+</head>
+<body>
+<a name="_top"></a>
+<!-- # road-sign-recognition --><!-- menu.html mResNetCNNConfiguration -->
+<h1>TrainingMain
+</h1>
+
+<h2><a name="_name"></a>PURPOSE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>Project Title: Road Sign Recognition</strong></div>
+
+<h2><a name="_synopsis"></a>SYNOPSIS <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="box"><strong>This is a script file. </strong></div>
+
+<h2><a name="_description"></a>DESCRIPTION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre class="comment">Project Title: Road Sign Recognition
+Module Title: Training Main
+Description: Main script used for network training
+Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</pre></div>
+
+<!-- crossreference -->
+<h2><a name="_cross"></a>CROSS-REFERENCE INFORMATION <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+This function calls:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+<li><a href="DatasetReading.html" class="code" title="function [resizedImdsTrain, resizedImdsValidation] = DatasetReading(dataset_path)">DatasetReading</a>	Project Title: Road Sign Recognition</li><li><a href="NetworkTraining.html" class="code" title="function net = NetworkTraining(resizedImdsTrain, resizedImdsValidation, lgraph)">NetworkTraining</a>	Project Title: Road Sign Recognition</li></ul>
+This function is called by:
+<ul style="list-style-image:url(../../matlabicon.gif)">
+</ul>
+<!-- crossreference -->
+
+
+
+<h2><a name="_source"></a>SOURCE CODE <a href="#_top"><img alt="^" border="0" src="../../up.png"></a></h2>
+<div class="fragment"><pre>0001 <span class="comment">%Project Title: Road Sign Recognition</span>
+0002 <span class="comment">%Module Title: Training Main</span>
+0003 <span class="comment">%Description: Main script used for network training</span>
+0004 <span class="comment">%Authors: Damiano Vandi, Matteo Lenti, Filippo Cenonfolo</span>
+0005 
+0006 <span class="comment">%Recall the network</span>
+0007 mResNet;
+0008 
+0009 <span class="comment">%ToDo Specify correct dataset path</span>
+0010 dataset_path = <span class="string">'C:\Users\matte\Desktop\Università\Advanced_automotive_electronic_engineering\2_Anno\Compliance Design\GTSRB'</span>; 
+0011 
+0012 <span class="comment">%Read data for training and validation</span>
+0013 [resizedImdsTrain, resizedImdsValidation] = <a href="DatasetReading.html" class="code" title="function [resizedImdsTrain, resizedImdsValidation] = DatasetReading(dataset_path)">DatasetReading</a>(dataset_path);
+0014 
+0015 <span class="comment">%Train the network</span>
+0016 net = <a href="NetworkTraining.html" class="code" title="function net = NetworkTraining(resizedImdsTrain, resizedImdsValidation, lgraph)">NetworkTraining</a>(resizedImdsTrain, resizedImdsValidation, lgraph);</pre></div>
+<hr><address>Generated on Mon 09-Mar-2020 16:14:51 by <strong><a href="http://www.artefact.tk/software/matlab/m2html/" target="_parent">m2html</a></strong> &copy; 2005</address>
+</body>
+</html>

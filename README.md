@@ -3,7 +3,7 @@ The aim of the project is to build and train a Neural Network for road sign clas
 deploy it on Raspberry Pi.
 ## Model Based Design
 For the realization of the project we followed a V-Model development cycle as presented below.
-![v_model.png](https://github.com/meltinglab/road-sign-recognition/tree/master/v_model.png)
+![](v_model.PNG)
 - System Requirements: general definition of the system behavior
 - System Architectural Design: definition of software modules for training and validation, deployment and test
 - Software Requirements: definition of input and output values as well as standard library dependencies
